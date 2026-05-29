@@ -1,10 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Dashboard from "./pages/Dashboard";
+import Workspace from "./pages/Workspace";
+import About from "./pages/About";
+
 function App() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-white flex items-center justify-center">
-      <h1 className="text-4xl font-bold">
-        Cotton UI 🚀
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/workspace" element={<Workspace />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
