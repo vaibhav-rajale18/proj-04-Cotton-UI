@@ -2,11 +2,11 @@ function Dashboard() {
   return (
     <div>
       <h1 className="text-3xl font-bold">
-        Cotton UI Dashboard
+        Dashboard
       </h1>
 
-      <p className="mt-2 text-zinc-400">
-        Frontend-focused visual backend flow simulator.
+      <p className="mt-3 text-zinc-400">
+        Welcome to Cotton UI.
       </p>
     </div>
   );
