@@ -102,45 +102,6 @@ Currently in early planning and architecture phase.
 
 ---
 
-## 📌 Roadmap
-
-### Phase 1
-
-* Project setup
-* Tailwind integration
-* Layout architecture
-
-### Phase 2
-
-* React Flow canvas system
-* Custom nodes
-* Edge connections
-
-### Phase 3
-
-* Node configuration system
-* Dynamic forms
-* State synchronization
-
-### Phase 4
-
-* Frontend simulation engine
-* Execution visualization
-* Logs and timeline
-
-### Phase 5
-
-* Redux Toolkit architecture
-* Persistence layer
-* Advanced UI polish
-
-### Phase 6
-
-* Performance optimization
-* Reusable frontend patterns
-* Production deployment
-
----
 
 ## 🌟 Long-Term Goal
 
