@@ -1,17 +1,12 @@
 import FlowCanvas from "../components/canvas/FlowCanvas";
+import NodePalette from "../components/workspace/NodePalette";
 
 function Workspace() {
   return (
-    <div className="h-full flex flex-col">
-      <h1 className="text-3xl font-bold">
-        Workspace
-      </h1>
+    <div className="flex h-[calc(100vh-180px)] overflow-hidden rounded-xl border border-zinc-800">
+      <NodePalette />
 
-      <p className="mt-3 text-zinc-400">
-        Cotton UI visual workspace powered by React Flow.
-      </p>
-
-      <div className="mt-8 flex-1 min-h-[500px] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+      <div className="flex-1 bg-zinc-950">
         <FlowCanvas />
       </div>
     </div>
