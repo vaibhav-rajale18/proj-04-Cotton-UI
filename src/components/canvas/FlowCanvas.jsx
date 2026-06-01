@@ -1,4 +1,8 @@
-import ReactFlow from "reactflow";
+import ReactFlow, {
+  Controls,
+  MiniMap,
+  Background,
+} from "reactflow";
 import "reactflow/dist/style.css";
 
 const FlowCanvas = () => {
@@ -13,7 +17,20 @@ const FlowCanvas = () => {
 
   return (
     <div className="h-full w-full">
-      <ReactFlow nodes={nodes} fitView />
+      <ReactFlow nodes={nodes} fitView>
+        <MiniMap
+          pannable
+          zoomable
+          className="bg-zinc-900"
+        />
+
+        <Controls />
+
+        <Background
+          gap={20}
+          size={1}
+        />
+      </ReactFlow>
     </div>
   );
 };
