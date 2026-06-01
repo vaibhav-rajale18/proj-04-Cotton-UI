@@ -1,16 +1,18 @@
+import FlowCanvas from "../components/canvas/FlowCanvas";
+
 function Workspace() {
   return (
-    <div>
+    <div className="h-full flex flex-col">
       <h1 className="text-3xl font-bold">
         Workspace
       </h1>
 
       <p className="mt-3 text-zinc-400">
-        React Flow canvas will be implemented in Day 2.
+        Cotton UI visual workspace powered by React Flow.
       </p>
 
-      <div className="mt-8 rounded-xl border border-dashed border-zinc-700 h-[500px] flex items-center justify-center text-zinc-500">
-        Canvas Area Placeholder
+      <div className="mt-8 flex-1 min-h-[500px] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+        <FlowCanvas />
       </div>
     </div>
   );
