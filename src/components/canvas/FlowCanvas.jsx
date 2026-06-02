@@ -5,19 +5,31 @@ import ReactFlow, {
 } from "reactflow";
 import "reactflow/dist/style.css";
 
+import RequestNode from "../nodes/RequestNode";
+
+const nodeTypes = {
+  request: RequestNode,
+};
+
 const FlowCanvas = () => {
   const nodes = [
     {
       id: "1",
-      position: { x: 100, y: 100 },
-      data: { label: "Hello Cotton UI" },
-      type: "default",
+      type: "request",
+      position: { x: 250, y: 150 },
+      data: {
+        label: "POST /login",
+      },
     },
   ];
 
   return (
     <div className="h-full w-full">
-      <ReactFlow nodes={nodes} fitView>
+      <ReactFlow
+        nodes={nodes}
+        nodeTypes={nodeTypes}
+        fitView
+      >
         <MiniMap
           pannable
           zoomable
