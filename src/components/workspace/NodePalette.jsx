@@ -11,15 +11,37 @@ const nodeTypes = [
 function NodePalette() {
   return (
     <div className="w-64 border-r border-zinc-800 bg-zinc-900 p-4">
-      <h2 className="mb-4 text-lg font-semibold text-white">
+      <h2 className="mb-1 text-lg font-semibold text-white">
         Node Palette
       </h2>
+
+      <p className="mb-6 text-xs uppercase tracking-wider text-zinc-500">
+        Backend Components
+      </p>
 
       <div className="space-y-3">
         {nodeTypes.map((node) => (
           <button
             key={node}
-            className="w-full rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-3 text-left text-sm text-zinc-200 transition hover:border-zinc-600 hover:bg-zinc-700"
+            className="
+              w-full
+              rounded-xl
+              border
+              border-zinc-700
+              bg-zinc-800
+              px-4
+              py-3
+              text-left
+              text-sm
+              font-medium
+              text-zinc-200
+              transition-all
+              duration-200
+              hover:translate-x-1
+              hover:border-zinc-600
+              hover:bg-zinc-700
+              active:scale-[0.98]
+            "
           >
             {node}
           </button>
