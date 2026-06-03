@@ -16,9 +16,25 @@ const FlowCanvas = () => {
     {
       id: "1",
       type: "request",
-      position: { x: 250, y: 150 },
+      position: { x: 100, y: 150 },
       data: {
         label: "POST /login",
+      },
+    },
+    {
+      id: "2",
+      type: "request",
+      position: { x: 450, y: 150 },
+      data: {
+        label: "GET /users",
+      },
+    },
+    {
+      id: "3",
+      type: "request",
+      position: { x: 800, y: 150 },
+      data: {
+        label: "POST /register",
       },
     },
   ];
@@ -39,7 +55,7 @@ const FlowCanvas = () => {
         <Controls />
 
         <Background
-          gap={20}
+          gap={24}
           size={1}
         />
       </ReactFlow>
