@@ -136,7 +136,7 @@ const defaultEdgeOptions = {
   animated: true,
   style: {
     stroke: "#60a5fa",
-    strokeWidth: 2,
+    strokeWidth: 3,
   },
 };
 
@@ -148,6 +148,9 @@ const defaultEdgeOptions = {
   nodeTypes={nodeTypes}
   defaultEdgeOptions={defaultEdgeOptions}
   fitView
+  fitViewOptions={{
+    padding: 0.3,
+  }}
 >
         <MiniMap
           pannable
@@ -158,9 +161,10 @@ const defaultEdgeOptions = {
         <Controls />
 
         <Background
-          gap={24}
-          size={1}
-        />
+  gap={20}
+  size={1}
+  color="#27272a"
+/>
       </ReactFlow>
     </div>
   );

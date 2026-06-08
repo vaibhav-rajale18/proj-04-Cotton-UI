@@ -11,11 +11,11 @@ const nodeTypes = [
 function NodePalette() {
   return (
     <div className="w-64 border-r border-zinc-800 bg-zinc-900 p-4">
-      <h2 className="mb-1 text-lg font-semibold text-white">
+      <h2 className="text-lg font-semibold text-white">
         Node Palette
       </h2>
 
-      <p className="mb-6 text-xs uppercase tracking-wider text-zinc-500">
+      <p className="mt-1 mb-6 text-xs font-bold uppercase tracking-widest text-zinc-500">
         Backend Components
       </p>
 
@@ -38,8 +38,9 @@ function NodePalette() {
               transition-all
               duration-200
               hover:translate-x-1
-              hover:border-zinc-600
+              hover:border-blue-500
               hover:bg-zinc-700
+              hover:text-white
               active:scale-[0.98]
             "
           >

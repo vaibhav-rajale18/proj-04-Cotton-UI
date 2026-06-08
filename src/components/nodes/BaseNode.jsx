@@ -8,7 +8,18 @@ const BaseNode = ({
 }) => {
   return (
     <div
-      className={`min-w-[220px] rounded-xl border-2 ${borderColor} bg-zinc-900 p-4 shadow-lg`}
+      className={`
+        min-w-[240px]
+        rounded-2xl
+        border-2
+        ${borderColor}
+        bg-zinc-900
+        p-5
+        shadow-xl
+        transition-all
+        duration-200
+        hover:-translate-y-1
+      `}
     >
       <Handle
         type="target"
@@ -16,7 +27,13 @@ const BaseNode = ({
       />
 
       <div
-        className={`text-xs font-bold uppercase tracking-widest ${titleColor}`}
+        className={`
+          text-xs
+          font-bold
+          uppercase
+          tracking-widest
+          ${titleColor}
+        `}
       >
         {title}
       </div>
