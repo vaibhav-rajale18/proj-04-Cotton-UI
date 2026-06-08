@@ -1,3 +1,5 @@
+import { Handle, Position } from "reactflow";
+
 const BaseNode = ({
   title,
   label,
@@ -8,6 +10,11 @@ const BaseNode = ({
     <div
       className={`min-w-[220px] rounded-xl border-2 ${borderColor} bg-zinc-900 p-4 shadow-lg`}
     >
+      <Handle
+        type="target"
+        position={Position.Left}
+      />
+
       <div
         className={`text-xs font-bold uppercase tracking-widest ${titleColor}`}
       >
@@ -17,6 +24,11 @@ const BaseNode = ({
       <div className="mt-3 text-sm font-semibold text-white">
         {label}
       </div>
+
+      <Handle
+        type="source"
+        position={Position.Right}
+      />
     </div>
   );
 };

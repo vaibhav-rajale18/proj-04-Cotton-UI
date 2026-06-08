@@ -89,13 +89,66 @@ const FlowCanvas = () => {
   },
 ];
 
+const edges = [
+  {
+    id: "e1-2",
+    source: "1",
+    target: "2",
+    animated: true,
+  },
+
+  {
+    id: "e2-3",
+    source: "2",
+    target: "3",
+    animated: true,
+  },
+
+  {
+    id: "e3-4",
+    source: "3",
+    target: "4",
+    animated: true,
+  },
+
+  {
+    id: "e4-5",
+    source: "4",
+    target: "5",
+    animated: true,
+  },
+
+  {
+    id: "e5-6",
+    source: "5",
+    target: "6",
+    animated: true,
+  },
+
+  {
+    id: "e6-7",
+    source: "6",
+    target: "7",
+    animated: true,
+  },
+];
+const defaultEdgeOptions = {
+  animated: true,
+  style: {
+    stroke: "#60a5fa",
+    strokeWidth: 2,
+  },
+};
+
   return (
     <div className="h-full w-full">
-      <ReactFlow
-        nodes={nodes}
-        nodeTypes={nodeTypes}
-        fitView
-      >
+<ReactFlow
+  nodes={nodes}
+  edges={edges}
+  nodeTypes={nodeTypes}
+  defaultEdgeOptions={defaultEdgeOptions}
+  fitView
+>
         <MiniMap
           pannable
           zoomable
