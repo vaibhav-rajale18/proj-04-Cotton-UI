@@ -7,10 +7,20 @@ import "reactflow/dist/style.css";
 
 import RequestNode from "../nodes/RequestNode";
 import MiddlewareNode from "../nodes/MiddlewareNode";
+import RouteNode from "../nodes/RouteNode";
+import ControllerNode from "../nodes/ControllerNode";
+import ServiceNode from "../nodes/ServiceNode";
+import DatabaseNode from "../nodes/DatabaseNode";
+import ResponseNode from "../nodes/ResponseNode";
 
 const nodeTypes = {
   request: RequestNode,
   middleware: MiddlewareNode,
+  route: RouteNode,
+  controller: ControllerNode,
+  service: ServiceNode,
+  database: DatabaseNode,
+  response: ResponseNode,
 };
 
 const FlowCanvas = () => {
@@ -18,7 +28,7 @@ const FlowCanvas = () => {
   {
     id: "1",
     type: "request",
-    position: { x: 100, y: 150 },
+    position: { x: 100, y: 100 },
     data: {
       label: "POST /login",
     },
@@ -26,28 +36,55 @@ const FlowCanvas = () => {
 
   {
     id: "2",
-    type: "request",
-    position: { x: 450, y: 150 },
+    type: "middleware",
+    position: { x: 400, y: 100 },
     data: {
-      label: "GET /users",
+      label: "Auth Check",
     },
   },
 
   {
     id: "3",
-    type: "request",
-    position: { x: 800, y: 150 },
+    type: "route",
+    position: { x: 700, y: 100 },
     data: {
-      label: "POST /register",
+      label: "POST /login",
     },
   },
 
   {
     id: "4",
-    type: "middleware",
-    position: { x: 100, y: 350 },
+    type: "controller",
+    position: { x: 1000, y: 100 },
     data: {
-      label: "Auth Check",
+      label: "Login Controller",
+    },
+  },
+
+  {
+    id: "5",
+    type: "service",
+    position: { x: 1300, y: 100 },
+    data: {
+      label: "Auth Service",
+    },
+  },
+
+  {
+    id: "6",
+    type: "database",
+    position: { x: 1600, y: 100 },
+    data: {
+      label: "Users Collection",
+    },
+  },
+
+  {
+    id: "7",
+    type: "response",
+    position: { x: 1900, y: 100 },
+    data: {
+      label: "200 OK",
     },
   },
 ];
