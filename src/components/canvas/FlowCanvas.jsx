@@ -5,6 +5,7 @@ import ReactFlow, {
   MiniMap,
   Background,
     applyNodeChanges,
+    addEdge,
 } from "reactflow";
 
 import "reactflow/dist/style.css";
@@ -52,12 +53,25 @@ const FlowCanvas = () => {
   setNodes((nds) => applyNodeChanges(changes, nds));
 };
 
+const onConnect = (connection) => {
+  setEdges((eds) =>
+    addEdge(
+      {
+        ...connection,
+        animated: true,
+      },
+      eds
+    )
+  );
+};
+
   return (
     <div className="h-full w-full">
 <ReactFlow
   nodes={nodes}
   edges={edges}
   onNodesChange={onNodesChange}
+  onConnect={onConnect}
   nodeTypes={nodeTypes}
   defaultEdgeOptions={defaultEdgeOptions}
   fitView
