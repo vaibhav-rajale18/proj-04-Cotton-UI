@@ -4,6 +4,7 @@ import ReactFlow, {
   Controls,
   MiniMap,
   Background,
+    applyNodeChanges,
 } from "reactflow";
 
 import "reactflow/dist/style.css";
@@ -33,6 +34,7 @@ const nodeTypes = {
 
 
 
+
 const defaultEdgeOptions = {
   animated: true,
   style: {
@@ -46,18 +48,23 @@ const FlowCanvas = () => {
 
   const [edges, setEdges] = useState(initialEdges);
 
+  const onNodesChange = (changes) => {
+  setNodes((nds) => applyNodeChanges(changes, nds));
+};
+
   return (
     <div className="h-full w-full">
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        nodeTypes={nodeTypes}
-        defaultEdgeOptions={defaultEdgeOptions}
-        fitView
-        fitViewOptions={{
-          padding: 0.3,
-        }}
-      >
+<ReactFlow
+  nodes={nodes}
+  edges={edges}
+  onNodesChange={onNodesChange}
+  nodeTypes={nodeTypes}
+  defaultEdgeOptions={defaultEdgeOptions}
+  fitView
+  fitViewOptions={{
+    padding: 0.3,
+  }}
+>
         <MiniMap
           pannable
           zoomable
