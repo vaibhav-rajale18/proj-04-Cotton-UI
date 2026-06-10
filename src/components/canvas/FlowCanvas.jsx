@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import ReactFlow, {
   Controls,
   MiniMap,
@@ -9,11 +7,6 @@ import ReactFlow, {
 } from "reactflow";
 
 import "reactflow/dist/style.css";
-
-import {
-  initialNodes,
-  initialEdges,
-} from "../../data/initialFlow";
 
 import RequestNode from "../nodes/RequestNode";
 import MiddlewareNode from "../nodes/MiddlewareNode";
@@ -41,11 +34,12 @@ const defaultEdgeOptions = {
   },
 };
 
-const FlowCanvas = () => {
-  const [nodes, setNodes] = useState(initialNodes);
-
-  const [edges, setEdges] = useState(initialEdges);
-
+const FlowCanvas = ({
+  nodes,
+  setNodes,
+  edges,
+  setEdges,
+}) => {
   const onNodesChange = (changes) => {
     setNodes((nds) => applyNodeChanges(changes, nds));
   };
