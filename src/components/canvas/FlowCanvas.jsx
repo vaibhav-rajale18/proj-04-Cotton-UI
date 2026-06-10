@@ -4,8 +4,8 @@ import ReactFlow, {
   Controls,
   MiniMap,
   Background,
-    applyNodeChanges,
-    addEdge,
+  applyNodeChanges,
+  addEdge,
 } from "reactflow";
 
 import "reactflow/dist/style.css";
@@ -33,9 +33,6 @@ const nodeTypes = {
   response: ResponseNode,
 };
 
-
-
-
 const defaultEdgeOptions = {
   animated: true,
   style: {
@@ -50,35 +47,74 @@ const FlowCanvas = () => {
   const [edges, setEdges] = useState(initialEdges);
 
   const onNodesChange = (changes) => {
-  setNodes((nds) => applyNodeChanges(changes, nds));
-};
+    setNodes((nds) => applyNodeChanges(changes, nds));
+  };
 
-const onConnect = (connection) => {
-  setEdges((eds) =>
-    addEdge(
-      {
-        ...connection,
-        animated: true,
+  const onConnect = (connection) => {
+    setEdges((eds) =>
+      addEdge(
+        {
+          ...connection,
+          animated: true,
+        },
+        eds
+      )
+    );
+  };
+
+  const handleAddRequestNode = () => {
+    const newNode = {
+      id: `${Date.now()}`,
+      type: "request",
+
+      position: {
+        x: Math.random() * 500 + 100,
+        y: Math.random() * 400 + 100,
       },
-      eds
-    )
-  );
-};
+
+      data: {
+        label: `Request ${nodes.length + 1}`,
+      },
+    };
+
+    setNodes((nds) => [...nds, newNode]);
+  };
 
   return (
-    <div className="h-full w-full">
-<ReactFlow
-  nodes={nodes}
-  edges={edges}
-  onNodesChange={onNodesChange}
-  onConnect={onConnect}
-  nodeTypes={nodeTypes}
-  defaultEdgeOptions={defaultEdgeOptions}
-  fitView
-  fitViewOptions={{
-    padding: 0.3,
-  }}
->
+    <div className="relative h-full w-full">
+      <button
+        onClick={handleAddRequestNode}
+        className="
+          absolute
+          top-4
+          right-4
+          z-10
+          rounded-lg
+          bg-blue-600
+          px-4
+          py-2
+          text-sm
+          font-semibold
+          text-white
+          transition-colors
+          hover:bg-blue-500
+        "
+      >
+        Add Request Node
+      </button>
+
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onConnect={onConnect}
+        nodeTypes={nodeTypes}
+        defaultEdgeOptions={defaultEdgeOptions}
+        fitView
+        fitViewOptions={{
+          padding: 0.3,
+        }}
+      >
         <MiniMap
           pannable
           zoomable
