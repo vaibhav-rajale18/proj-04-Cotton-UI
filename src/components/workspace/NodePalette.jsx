@@ -8,7 +8,9 @@ const nodeTypes = [
   "Response",
 ];
 
-function NodePalette() {
+function NodePalette({
+  onAddRequestNode,
+}) {
   return (
     <div className="w-64 border-r border-zinc-800 bg-zinc-900 p-4">
       <h2 className="text-lg font-semibold text-white">
@@ -23,6 +25,11 @@ function NodePalette() {
         {nodeTypes.map((node) => (
           <button
             key={node}
+            onClick={
+              node === "Request"
+                ? onAddRequestNode
+                : undefined
+            }
             className="
               w-full
               rounded-xl

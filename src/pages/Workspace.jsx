@@ -13,9 +13,29 @@ function Workspace() {
 
   const [edges, setEdges] = useState(initialEdges);
 
+  const handleAddRequestNode = () => {
+    const newNode = {
+      id: `${Date.now()}`,
+      type: "request",
+
+      position: {
+        x: Math.random() * 500 + 100,
+        y: Math.random() * 400 + 100,
+      },
+
+      data: {
+        label: `Request ${nodes.length + 1}`,
+      },
+    };
+
+    setNodes((nds) => [...nds, newNode]);
+  };
+
   return (
     <div className="flex h-[calc(100vh-180px)] overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl">
-      <NodePalette />
+      <NodePalette
+        onAddRequestNode={handleAddRequestNode}
+      />
 
       <div className="flex flex-1 flex-col">
         <div className="border-b border-zinc-800 px-5 py-4">
