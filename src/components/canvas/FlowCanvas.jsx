@@ -4,6 +4,7 @@ import ReactFlow, {
   Background,
   applyNodeChanges,
   addEdge,
+  applyEdgeChanges,
 } from "reactflow";
 
 import "reactflow/dist/style.css";
@@ -41,7 +42,15 @@ const FlowCanvas = ({
   setEdges,
 }) => {
   const onNodesChange = (changes) => {
-    setNodes((nds) => applyNodeChanges(changes, nds));
+    setNodes((nds) =>
+      applyNodeChanges(changes, nds)
+    );
+  };
+
+  const onEdgesChange = (changes) => {
+    setEdges((eds) =>
+      applyEdgeChanges(changes, eds)
+    );
   };
 
   const onConnect = (connection) => {
@@ -56,54 +65,19 @@ const FlowCanvas = ({
     );
   };
 
-  const handleAddRequestNode = () => {
-    const newNode = {
-      id: `${Date.now()}`,
-      type: "request",
-
-      position: {
-        x: Math.random() * 500 + 100,
-        y: Math.random() * 400 + 100,
-      },
-
-      data: {
-        label: `Request ${nodes.length + 1}`,
-      },
-    };
-
-    setNodes((nds) => [...nds, newNode]);
-  };
-
   return (
     <div className="relative h-full w-full">
-      <button
-        onClick={handleAddRequestNode}
-        className="
-          absolute
-          top-4
-          right-4
-          z-10
-          rounded-lg
-          bg-blue-600
-          px-4
-          py-2
-          text-sm
-          font-semibold
-          text-white
-          transition-colors
-          hover:bg-blue-500
-        "
-      >
-        Add Request Node
-      </button>
-
       <ReactFlow
         nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
-        defaultEdgeOptions={defaultEdgeOptions}
+        defaultEdgeOptions={
+          defaultEdgeOptions
+        }
+        deleteKeyCode={["Backspace", "Delete"]}
         fitView
         fitViewOptions={{
           padding: 0.3,
