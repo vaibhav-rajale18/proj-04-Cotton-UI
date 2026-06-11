@@ -8,25 +8,22 @@ import {
   initialEdges,
 } from "../data/initialFlow";
 
+import createNode from "../utils/createNode";
+
 function Workspace() {
   const [nodes, setNodes] = useState(initialNodes);
 
   const [edges, setEdges] = useState(initialEdges);
 
-  const handleAddRequestNode = () => {
-    const newNode = {
-      id: `${Date.now()}`,
-      type: "request",
+  const handleAddNode = (type) => {
+    const nodeCount =
+      nodes.filter((node) => node.type === type)
+        .length + 1;
 
-      position: {
-        x: Math.random() * 500 + 100,
-        y: Math.random() * 400 + 100,
-      },
-
-      data: {
-        label: `Request ${nodes.length + 1}`,
-      },
-    };
+    const newNode = createNode(
+      type,
+      nodeCount
+    );
 
     setNodes((nds) => [...nds, newNode]);
   };
@@ -34,7 +31,7 @@ function Workspace() {
   return (
     <div className="flex h-[calc(100vh-180px)] overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl">
       <NodePalette
-        onAddRequestNode={handleAddRequestNode}
+        onAddNode={handleAddNode}
       />
 
       <div className="flex flex-1 flex-col">

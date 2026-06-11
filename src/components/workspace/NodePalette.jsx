@@ -1,15 +1,15 @@
 const nodeTypes = [
-  "Request",
-  "Middleware",
-  "Route",
-  "Controller",
-  "Service",
-  "Database",
-  "Response",
+  "request",
+  "middleware",
+  "route",
+  "controller",
+  "service",
+  "database",
+  "response",
 ];
 
 function NodePalette({
-  onAddRequestNode,
+  onAddNode,
 }) {
   return (
     <div className="w-64 border-r border-zinc-800 bg-zinc-900 p-4">
@@ -25,10 +25,8 @@ function NodePalette({
         {nodeTypes.map((node) => (
           <button
             key={node}
-            onClick={
-              node === "Request"
-                ? onAddRequestNode
-                : undefined
+            onClick={() =>
+              onAddNode(node)
             }
             className="
               w-full
@@ -41,6 +39,7 @@ function NodePalette({
               text-left
               text-sm
               font-medium
+              capitalize
               text-zinc-200
               transition-all
               duration-200
