@@ -29,6 +29,7 @@ const nodeTypes = {
 
 const defaultEdgeOptions = {
   animated: true,
+
   style: {
     stroke: "#60a5fa",
     strokeWidth: 3,
@@ -65,6 +66,24 @@ const FlowCanvas = ({
     );
   };
 
+  if (nodes.length === 0) {
+    return (
+      <div className="flex h-full items-center justify-center bg-zinc-950">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 px-10 py-8 text-center shadow-xl">
+          <h2 className="text-2xl font-bold text-white">
+            Start Building Your Backend Flow
+          </h2>
+
+          <p className="mt-3 max-w-sm text-sm text-zinc-400">
+            Use the node palette to add backend
+            components and design your request
+            lifecycle visually.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative h-full w-full">
       <ReactFlow
@@ -77,7 +96,10 @@ const FlowCanvas = ({
         defaultEdgeOptions={
           defaultEdgeOptions
         }
-        deleteKeyCode={["Backspace", "Delete"]}
+        deleteKeyCode={[
+          "Backspace",
+          "Delete",
+        ]}
         fitView
         fitViewOptions={{
           padding: 0.3,
