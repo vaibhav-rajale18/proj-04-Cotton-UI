@@ -5,6 +5,7 @@ const BaseNode = ({
   label,
   borderColor,
   titleColor,
+  selected,
 }) => {
   return (
     <div
@@ -12,7 +13,11 @@ const BaseNode = ({
         min-w-[240px]
         rounded-2xl
         border-2
-        ${borderColor}
+        ${
+          selected
+            ? "border-blue-500 ring-4 ring-blue-500/20 shadow-2xl shadow-blue-500/20"
+            : borderColor
+        }
         bg-zinc-900
         p-5
         shadow-xl
@@ -32,7 +37,11 @@ const BaseNode = ({
           font-bold
           uppercase
           tracking-widest
-          ${titleColor}
+          ${
+            selected
+              ? "text-blue-400"
+              : titleColor
+          }
         `}
       >
         {title}
