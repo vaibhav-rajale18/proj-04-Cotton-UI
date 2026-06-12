@@ -14,9 +14,9 @@ const BaseNode = ({
         rounded-2xl
         border-2
         ${
-          selected
-            ? "border-blue-500 ring-4 ring-blue-500/20 shadow-2xl shadow-blue-500/20"
-            : borderColor
+         selected
+  ? "border-pink-500 ring-4 ring-pink-500/30 selected-node"
+  : borderColor
         }
         bg-zinc-900
         p-5
@@ -38,9 +38,9 @@ const BaseNode = ({
           uppercase
           tracking-widest
           ${
-            selected
-              ? "text-blue-400"
-              : titleColor
+           selected
+  ? "text-pink-400"
+  : titleColor
           }
         `}
       >
