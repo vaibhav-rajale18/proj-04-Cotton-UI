@@ -41,6 +41,8 @@ const FlowCanvas = ({
   setNodes,
   edges,
   setEdges,
+  selectedNode,
+  setSelectedNode,
 }) => {
   const onNodesChange = (changes) => {
     setNodes((nds) =>
@@ -64,6 +66,17 @@ const FlowCanvas = ({
         eds
       )
     );
+  };
+
+  const handleNodeClick = (
+    event,
+    node
+  ) => {
+    setSelectedNode(node);
+  };
+
+  const handlePaneClick = () => {
+    setSelectedNode(null);
   };
 
   if (nodes.length === 0) {
@@ -92,6 +105,8 @@ const FlowCanvas = ({
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        onNodeClick={handleNodeClick}
+        onPaneClick={handlePaneClick}
         nodeTypes={nodeTypes}
         defaultEdgeOptions={
           defaultEdgeOptions
