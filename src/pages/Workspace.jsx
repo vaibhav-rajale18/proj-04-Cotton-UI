@@ -16,6 +16,9 @@ function Workspace() {
 
   const [edges, setEdges] = useState(initialEdges);
 
+  const [selectedNode, setSelectedNode] =
+    useState(null);
+
   const handleAddNode = (type) => {
     const nodeCount =
       nodes.filter((node) => node.type === type)
@@ -52,11 +55,17 @@ function Workspace() {
             setNodes={setNodes}
             edges={edges}
             setEdges={setEdges}
+            selectedNode={selectedNode}
+            setSelectedNode={
+              setSelectedNode
+            }
           />
         </div>
       </div>
 
-      <InspectorPanel />
+      <InspectorPanel
+        selectedNode={selectedNode}
+      />
     </div>
   );
 }

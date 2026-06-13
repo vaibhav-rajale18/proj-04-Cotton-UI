@@ -1,4 +1,6 @@
-function InspectorPanel() {
+function InspectorPanel({
+  selectedNode,
+}) {
   return (
     <div className="w-80 border-l border-zinc-800 bg-zinc-950 p-5">
       <div>
@@ -7,7 +9,8 @@ function InspectorPanel() {
         </h2>
 
         <p className="mt-1 text-sm text-zinc-400">
-          Configure selected backend components.
+          Configure selected backend
+          components.
         </p>
       </div>
 
@@ -21,9 +24,16 @@ function InspectorPanel() {
         </h3>
 
         <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-          Select a backend component to view
-          and edit its configuration.
+          Select a backend component to
+          view and edit its configuration.
         </p>
+
+        {selectedNode && (
+          <p className="mt-4 text-xs text-pink-400">
+            Selected:{" "}
+            {selectedNode.data?.label}
+          </p>
+        )}
       </div>
     </div>
   );
