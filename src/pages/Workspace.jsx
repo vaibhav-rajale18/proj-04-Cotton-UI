@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import FlowCanvas from "../components/canvas/FlowCanvas";
 import NodePalette from "../components/workspace/NodePalette";
+import InspectorPanel from "../components/inspector/InspectorPanel";
 
 import {
   initialNodes,
@@ -34,7 +35,7 @@ function Workspace() {
         onAddNode={handleAddNode}
       />
 
-      <div className="flex flex-1 flex-col">
+      <div className="flex min-w-0 flex-1 flex-col">
         <div className="border-b border-zinc-800 px-5 py-4">
           <h1 className="text-lg font-bold text-white">
             Cotton Flow Editor
@@ -54,6 +55,8 @@ function Workspace() {
           />
         </div>
       </div>
+
+      <InspectorPanel />
     </div>
   );
 }
