@@ -47,32 +47,55 @@ function InspectorPanel({
         </p>
       </div>
 
-      <div className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-        <div className="mb-4 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-500/20 text-xl">
-            🎯
+      <div className="mt-8 space-y-6">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-500/20 text-xl">
+              🎯
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-white">
+                Node Details
+              </h3>
+
+              <p className="text-sm text-zinc-400">
+                Information about the selected component.
+              </p>
+            </div>
           </div>
 
-          <div>
-            <h3 className="font-semibold text-white">
-              Component Selected
-            </h3>
+          <div className="space-y-4">
+            <div className="rounded-xl bg-zinc-800/50 p-4">
+              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Node Type
+              </p>
 
-            <p className="text-sm text-zinc-400">
-              Configuration options coming
-              next.
-            </p>
+              <p className="mt-1 font-medium capitalize text-white">
+                {selectedNode.type}
+              </p>
+            </div>
+
+            <div className="rounded-xl bg-zinc-800/50 p-4">
+              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Node ID
+              </p>
+
+              <p className="mt-1 font-medium text-white">
+                {selectedNode.id}
+              </p>
+            </div>
+
+            <div className="rounded-xl bg-zinc-800/50 p-4">
+              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Current Label
+              </p>
+
+              <p className="mt-1 font-medium text-pink-400">
+                {selectedNode.data?.label}
+              </p>
+            </div>
           </div>
-        </div>
-
-        <div className="rounded-xl bg-zinc-800/50 p-4">
-          <p className="text-sm text-zinc-400">
-            Selected Component
-          </p>
-
-          <p className="mt-1 font-medium text-pink-400">
-            {selectedNode.data?.label}
-          </p>
         </div>
       </div>
     </div>
