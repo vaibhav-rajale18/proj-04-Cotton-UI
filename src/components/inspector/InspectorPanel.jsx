@@ -1,5 +1,6 @@
 function InspectorPanel({
   selectedNode,
+  onLabelChange,
 }) {
   if (!selectedNode) {
     return (
@@ -60,7 +61,8 @@ function InspectorPanel({
               </h3>
 
               <p className="text-sm text-zinc-400">
-                Information about the selected component.
+                Information about the selected
+                component.
               </p>
             </div>
           </div>
@@ -87,13 +89,23 @@ function InspectorPanel({
             </div>
 
             <div className="rounded-xl bg-zinc-800/50 p-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
-                Current Label
-              </p>
+              <label className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Label
+              </label>
 
-              <p className="mt-1 font-medium text-pink-400">
-                {selectedNode.data?.label}
-              </p>
+              <input
+                type="text"
+                value={
+                  selectedNode.data?.label ||
+                  ""
+                }
+                onChange={(e) =>
+                  onLabelChange(
+                    e.target.value
+                  )
+                }
+                className="mt-3 w-full rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm text-white outline-none transition focus:border-pink-500"
+              />
             </div>
           </div>
         </div>

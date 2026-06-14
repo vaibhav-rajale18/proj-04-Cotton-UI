@@ -32,6 +32,32 @@ function Workspace() {
     setNodes((nds) => [...nds, newNode]);
   };
 
+  const handleLabelChange = (label) => {
+    if (!selectedNode) return;
+
+    setNodes((nds) =>
+      nds.map((node) =>
+        node.id === selectedNode.id
+          ? {
+              ...node,
+              data: {
+                ...node.data,
+                label,
+              },
+            }
+          : node
+      )
+    );
+
+    setSelectedNode((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        label,
+      },
+    }));
+  };
+
   return (
     <div className="flex h-[calc(100vh-180px)] overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl">
       <NodePalette
@@ -65,6 +91,9 @@ function Workspace() {
 
       <InspectorPanel
         selectedNode={selectedNode}
+        onLabelChange={
+          handleLabelChange
+        }
       />
     </div>
   );
