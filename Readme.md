@@ -30,7 +30,7 @@ Cotton UI is designed as a frontend-first developer tool focused on:
 * UI/UX polish
 * Simulation-based learning
 
-This project is intentionally frontend-focused and separate from the larger long-term Cotton ecosystem.
+This project is intentionally frontend-focused and will cover the concepts of frontend web development 
 
 ---
 
